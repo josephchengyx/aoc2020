@@ -8,21 +8,22 @@ with open('day1_input.csv', newline='') as f:
 
 # print(data)
 
-def part_1(data):
+def part_1(data, total):
     for n in data:
-        x = 2020 - n
-        if x in data:
-            return n * x
+        x = total - n
+        if x in data and x != n:
+            return n, x
+    return 0, 0
 
-def part_2(data):
+def part_2(data, total):
     for n in data:
-        m = 2020 - n
-        for x in data:
-            y = m - x
-            if y in data:
-                return n * x * y
+        m = total - n
+        x, y = part_1(data, m)
+        if x + y == m and n != x and n!= y:
+            return n, x, y
+    return 0, 0, 0
 
-ans_1 = part_1(data)
-ans_2 = part_2(data)
-print(f'Part 1: {ans_1}')
-print(f'Part 2: {ans_2}')
+a11, a12 = part_1(data, 2020)
+a21, a22, a23 = part_2(data, 2020)
+print(f'Part 1: {a11}, {a12}, product {a11*a12}')
+print(f'Part 2: {a21}, {a22}, {a23}, product {a21*a22*a23}')
