@@ -9,18 +9,20 @@ with open('day1_input.csv', newline='') as f:
 # print(data)
 
 def part_1(data, total):
-    for n in data:
-        x = total - n
-        if x in data and x != n:
-            return n, x
+    for i in range(len(data)):
+        x = data[i]
+        y = total - x
+        if y in data and data.index(y) != i:
+            return x, y
     return 0, 0
 
 def part_2(data, total):
-    for n in data:
-        m = total - n
-        x, y = part_1(data, m)
-        if x + y == m and n != x and n!= y:
-            return n, x, y
+    for i in range(len(data)):
+        x = data[i]
+        sub = total - x
+        y, z = part_1(data, sub)
+        if y + z == sub and data.index(y) != i and data.index(z) != i:
+            return x, y, z
     return 0, 0, 0
 
 a11, a12 = part_1(data, 2020)
