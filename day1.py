@@ -27,5 +27,7 @@ def part_2(data, total):
 
 a11, a12 = part_1(data, 2020)
 a21, a22, a23 = part_2(data, 2020)
-print(f'Part 1: {a11}, {a12}, product {a11*a12}')
-print(f'Part 2: {a21}, {a22}, {a23}, product {a21*a22*a23}')
+ans_1 = a11 * a12
+ans_2 = a21 * a22 * a23
+print(f'Part 1: {a11}, {a12}, product {ans_1}')
+print(f'Part 2: {a21}, {a22}, {a23}, product {ans_2}')
