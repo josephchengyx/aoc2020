@@ -88,7 +88,7 @@ def part_2(data):
         for entry in line:
             field, x = entry[:3], entry[4:]
             if field in valid and validation(field, x):
-                    valid.remove(field)
+                valid.remove(field)
         if not valid:
             count += 1
     return count
