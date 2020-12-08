@@ -8,8 +8,6 @@ with open('day7_input.csv', newline='') as f:
 
 # print(data[:10])
 
-
-
 def parse(data):
     result = dict()
     for line in data:
@@ -34,6 +32,8 @@ def parse(data):
 
 data_dic = parse(data)
 # print(data_dic)
+
+
 
 def part_1(data, ini):
     result = [ini]
