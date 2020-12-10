@@ -9,27 +9,26 @@ with open('day10_input.csv', newline='') as f:
 
 # print(data)
 
-
-
-def part_1(data):
-    diff = {1: 0, 2: 0, 3: 1}
-    for i in range(len(data)):
-        if i == 0:
-            d = data[i]
-        else:
-            d = data[i] - data[i-1]
-        if d in diff:
-            diff[d] += 1
-    return diff
-
-
-
-def diff_arr(data):
+def difference(data):
     res = [data[0]]
     for i in range(1, len(data)):
         d = data[i] - data[i-1]
         res.append(d)
     return tuple(res)
+
+diff_arr = difference(data)
+# print(diff_arr)
+
+
+
+def part_1(data):
+    diff = {1: 0, 2: 0, 3: 1}
+    for n in data:
+        if n in diff:
+            diff[n] += 1
+    return diff
+
+
 
 part_2_memo = dict()
 def part_2(data):
@@ -49,12 +48,9 @@ def part_2(data):
 
 
 
-diff_dict = part_1(data)
+diff_dict = part_1(diff_arr)
 # print(diff_dict)
 ans_1 = diff_dict[1] * diff_dict[3]
 print(f'Part 1: {ans_1}')
-
-diff_data = diff_arr(data)
-# print(diff_data)
-ans_2 = part_2(diff_data)
+ans_2 = part_2(diff_arr)
 print(f'Part 2: {ans_2}')
