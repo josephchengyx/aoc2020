@@ -74,8 +74,6 @@ def part_2(data):
 def manhattan_dist(E, N):
     return abs(E) + abs(N)
 
-
-
 a1_E, a1_N = part_1(data)
 ans_1 = manhattan_dist(a1_E, a1_N)
 a2_E, a2_N = part_2(data)
