@@ -51,6 +51,6 @@ def part_2(data):
 diff_dict = part_1(diff_arr)
 # print(diff_dict)
 ans_1 = diff_dict[1] * diff_dict[3]
-print(f'Part 1: {ans_1}')
 ans_2 = part_2(diff_arr)
+print(f'Part 1: {ans_1}')
 print(f'Part 2: {ans_2}')
