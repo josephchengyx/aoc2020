@@ -1,11 +1,10 @@
-import csv
 from copy import deepcopy
 
-with open('day11_input.csv', newline='') as f:
-    reader = csv.reader(f)
+with open('day11_input.txt', newline='') as f:
+    reader = f.read().splitlines()
     data = list()
     for line in reader:
-        line = list(line[0])
+        line = list(line)
         data.append(line)
 
 # def print_arr(arr):
