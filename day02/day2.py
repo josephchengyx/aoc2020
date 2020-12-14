@@ -1,5 +1,3 @@
-import csv
-
 def parse(strng):
     ln = strng.split()
     d = ln[0].index('-')
@@ -8,11 +6,11 @@ def parse(strng):
     char = ln[1][0]
     return (lw, up, char, ln[2])
 
-with open('day2_input.csv', newline='') as f:
-    reader = csv.reader(f)
+with open('day2_input.txt', newline='') as f:
+    reader = f.read().splitlines()
     data = list()
     for line in reader:
-        data.append(parse(line[0]))
+        data.append(parse(line))
 
 # print(data[:10])
 
