@@ -1,10 +1,8 @@
-import csv
-
-with open('day10_input.csv', newline='') as f:
-    reader = csv.reader(f)
+with open('day10_input.txt', newline='') as f:
+    reader = f.read().splitlines()
     data = list()
     for line in reader:
-        data.append(int(line[0]))
+        data.append(int(line))
     data = sorted(data)
 
 # print(data)
