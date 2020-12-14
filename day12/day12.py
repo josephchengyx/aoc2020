@@ -1,12 +1,11 @@
-import csv
 from math import pi, cos, sin
 from numpy import array, matmul
 
-with open('day12_input.csv', newline='') as f:
-    reader = csv.reader(f)
+with open('day12_input.txt', newline='') as f:
+    reader = f.read().splitlines()
     data = list()
     for line in reader:
-        data.append(line[0])
+        data.append(line)
 
 # print(data[:10])
 
