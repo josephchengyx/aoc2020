@@ -1,10 +1,8 @@
-import csv
-
-with open('day9_input.csv', newline='') as f:
-    reader = csv.reader(f)
+with open('day9_input.txt', newline='') as f:
+    reader = f.read().splitlines()
     data = list()
     for line in reader:
-        data.append(int(line[0]))
+        data.append(int(line))
 
 # print(data[:10])
 
