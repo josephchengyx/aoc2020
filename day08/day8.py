@@ -1,19 +1,18 @@
-import csv
 from time import sleep
 
-with open('day8_input.csv', newline='') as f:
-    reader = csv.reader(f)
+with open('day8_input.txt', newline='') as f:
+    reader = f.read().splitlines()
     data = list()
     for line in reader:
-        data.append(line[0])
+        data.append(line)
 
 # print(data[:10])
 
-with open('day8_fixed.csv', newline='') as f:
-    reader = csv.reader(f)
+with open('day8_fixed.txt', newline='') as f:
+    reader = f.read().splitlines()
     fixed_data = list()
     for line in reader:
-        fixed_data.append(line[0])
+        fixed_data.append(line)
 
 def parse(data):
     for i in range(len(data)):
@@ -32,7 +31,7 @@ fixed_data = parse(fixed_data)
 
 
 
-def part_1(data):
+def run_program(data):
     acc = 0
     i = 0
     seen = list()
@@ -97,13 +96,13 @@ def fix(data):
             return idx + 1
 
 # trace(data)
-idx = fix(data)
-print(f'Change instruction at line {idx}')
+# idx = fix(data)
+# print(f'Change instruction at line {idx}')
 # trace(fixed_data)
 
 
 
-ans_1 = part_1(data)
-ans_2 = part_1(fixed_data)
+ans_1 = run_program(data)
+ans_2 = run_program(fixed_data)
 print(f'Part 1: {ans_1}')
 print(f'Part 2: {ans_2}')
