@@ -1,10 +1,8 @@
-import csv
-
-with open('day1_input.csv', newline='') as f:
-    reader = csv.reader(f, quoting=csv.QUOTE_NONNUMERIC)
+with open('day1_input.txt', newline='') as f:
+    reader = f.read().splitlines()
     data = list()
     for line in reader:
-        data.append(line[0])
+        data.append(int(line))
 
 # print(data)
 
