@@ -1,12 +1,10 @@
-import csv
-
-with open('day4_input.csv', newline='') as f:
-    reader = csv.reader(f)
+with open('day4_input.txt', newline='') as f:
+    reader = f.read().splitlines()
     data = list()
     temp_list = list()
     for line in reader:
         if line:
-            line = line[0].split(' ')
+            line = line.split(' ')
             for word in line:
                 temp_list.append(word)
         else:
