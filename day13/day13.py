@@ -1,17 +1,17 @@
-import csv
 from math import prod
 
-with open('day13_input.csv', newline='') as f:
-    reader = csv.reader(f)
+with open('day13_input.txt', newline='') as f:
+    reader = f.read().splitlines()
     data = list()
     for line in reader:
         data.append(line)
     
 # print(data)
 
-t0 = int(data[0][0])
+t0 = int(data[0])
+schedule = data[1].split(',')
 buses = list()
-for bus in data[1]:
+for bus in schedule:
     if bus != 'x':
         bus = int(bus)
     buses.append(bus)
