@@ -1,14 +1,18 @@
+'''
+Thanks to @chuahou for optimizing runtime by replacing dictionary with list
+'''
+
 data = [9,6,0,10,18,2,1]
 
 def memory_game(data, end):
     t = 1
     prev = data[0]
-    memo = dict()
+    memo = end * [0]
     while t < end:
         if t < len(data):
             curr = data[t]
         else:
-            if prev not in memo:
+            if memo[prev] == 0:
                 curr = 0
             else:
                 curr = t - memo[prev]
