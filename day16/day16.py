@@ -67,13 +67,12 @@ def discard_inval(tickets, fields):
     return remaining
 
 def match_fields(tickets, fields):
-    N = len(fields)
-
     def valid(fields, name, val):
         tup = fields[name]
         lw1, lw2, up1, up2 = tup[0], tup[1], tup[2], tup[3]
         return True if (val >= lw1 and val <= lw2) or (val >= up1 and val <= up2) else False
     
+    N = len(fields)
     chk_lst = list()
     for i in range(N):
         col = [key for key in fields.keys()]
