@@ -16,9 +16,8 @@ part_1_data = [data]
 #             print(row)
 #         z += 1
 #         print('')
-        
 
-# print_arr(data)
+# print_arr(part_1_data)
 
 
 

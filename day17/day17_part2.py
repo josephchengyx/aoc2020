@@ -21,7 +21,7 @@ part_2_data = [[data]]
 #         w += 1  
 #         print('\n')
 
-# print_arr(data)
+# print_arr(part_2_data)
 
 
 
