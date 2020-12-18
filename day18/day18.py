@@ -8,6 +8,11 @@ with open('day18_input.txt', newline='') as f:
 
 
 
+def parse_num(strng, idx):
+    while idx < len(strng) and strng[idx].isnumeric():
+        idx += 1
+    return idx
+
 def matching_bracket(strng, idx):
     stack = [strng[idx]]
     while idx < len(strng):
@@ -33,7 +38,12 @@ def part_1(expr):
             char = part_1(expr[i+1:j])
             i = j
         elif char.isnumeric():
-            char = int(char)
+            j = parse_num(expr, i)
+            if i == j:
+                char = int(char)
+            else:
+                char = int(expr[i:j])
+                i = j
         elif char == '+' or char == '*':
             op = char
         if isinstance(char, int):
@@ -60,7 +70,12 @@ def part_2(expr):
             char = part_2(expr[i+1:j])
             i = j
         elif char.isnumeric():
-            char = int(char)
+            j = parse_num(expr, i)
+            if i == j:
+                char = int(char)
+            else:
+                char = int(expr[i:j])
+                i = j
         elif char == '+':
             op = char
         if isinstance(char, int):
