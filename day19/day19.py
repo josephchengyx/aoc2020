@@ -20,7 +20,9 @@ msgs = data[129:]
 
 def combine(args):
     res = list()
-    if len(args) == 1:
+    if len(args) < 2:
+        if not args:
+            return ''
         return args[0]
     if len(args) > 2:
         arg1, arg2 = args[0], combine(args[1:])
