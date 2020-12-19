@@ -76,7 +76,6 @@ def part_1(rule, msgs):
 
 '''
 Part 2:
-
 --- New rules ---
 8: 42 | 42 8
 11: 42 31 | 42 11 31
