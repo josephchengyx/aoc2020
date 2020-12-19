@@ -74,6 +74,35 @@ def part_1(rule, msgs):
 
 
 
+'''
+Part 2:
+
+--- New rules ---
+8: 42 | 42 8
+11: 42 31 | 42 11 31
+(all other rules remain the same)
+
+Rule 8 can now be interpreted as such:        m * r42 ;             m >= 1
+and Rule 11 can now be interpreted as such:   n * r42 + n * r31 ;   n >= 1
+(r42: any message that matches rule 42,
+ r31: any message that matches rule 31,
+ m and n are integers.)
+
+Since Rule 0 depends solely on both rules 8 and 11 as such:
+--- Rule 0 ---
+0: 8 11
+
+With the changes to rules 8 and 11, Rule 0 can now be interpreted as such:
+(m + n) * r42 + n * r31 ;   m, n >= 1
+
+Note that since  m  must be at least 1,  m + n  must be greater than  n  by at least 1
+(but there is no upper limit on how much larger  m + n  can be compared to n).
+
+Thus for any message that does not match the original Rule 0, we can attempt to decompose it into
+exactly ( x  components of r42 succeeded by  y  components of r31 ), and check if  x >= y + 1
+in order to match the new interpretation of Rule 0.
+'''
+
 def new_rules(rule31, rule42, msg):
     n31, n42 = 0, 0
     bool31, bool42 = True, True
