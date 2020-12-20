@@ -24,7 +24,7 @@ def combine(args):
         if not args:
             return ''
         return args[0]
-    if len(args) > 2:
+    elif len(args) > 2:
         arg1, arg2 = args[0], combine(args[1:])
     else:
         arg1, arg2 = args[0], args[1]
