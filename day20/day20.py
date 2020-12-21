@@ -235,10 +235,11 @@ def convolution(data):
 
 def part_2(img):
     chk_lst = [img, cc_rotate(img), cw_rotate(img), rotate_180(img), ud_flip(img), cc_rotate(ud_flip(img)), cw_rotate(ud_flip(img)), lr_flip(img)]
-    res = list()
     for item in chk_lst:
-        res.append(convolution(item))
-    return sum(map(lambda row: row.count('#'), img)) - max(res)
+        res = convolution(item)
+        if res > 0:
+            return sum(map(lambda row: row.count('#'), img)) - res
+    return 0
 
 
 
@@ -250,7 +251,8 @@ img_dic = match_tiles(tile_dic)
 corners = part_1(img_dic)
 ans_1 = prod(corners)
 
-img = assemble_img(img_dic, tile_dic, (corners[0], 'u'))
+start_tile = (corners[0], 'u')
+img = assemble_img(img_dic, tile_dic, start_tile)
 # print_img(img)
 ans_2 = part_2(img)
 
