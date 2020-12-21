@@ -23,7 +23,7 @@ def parse_data(data):
     return res
 
 tile_dic = parse_data(data)
-# print(data_dic[1409])
+# print(tile_dic[1409])
 
 
 
