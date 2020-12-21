@@ -48,13 +48,15 @@ def r_edge(tile):
 def match_tiles(data):
     dirn = {0: 'u', 1: 'd', 2: 'l', 3: 'r'}
     res = {ID: [0, 0, 0, 0] for ID in data}
+
     for ID, tile in data.items():
         edges = [u_edge(tile), d_edge(tile), l_edge(tile), r_edge(tile)]
         for i in range(4):
             if res[ID][i] != 0:
-                pass
+                continue
             edge = edges[i]
             match = False
+
             for ID2, tile2 in data.items():
                 if ID == ID2:
                     continue
@@ -78,8 +80,10 @@ def match_tiles(data):
                     res[ID2][3] = (ID, dirn[i])
                     match = True
                     break
+            
             if not match:
                 res[ID][i] = (-1, '')
+    
     return res
 
 def part_1(img):
