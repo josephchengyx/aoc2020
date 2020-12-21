@@ -144,6 +144,7 @@ def remove_borders(tile):
 def assemble_img(instr, data, ini):
     img = list()
     d_curr = ini
+    prev_d_edge = ''
 
     while d_curr[0] != -1:
         i_ID, i_ori = d_curr[0], d_curr[1]
@@ -162,7 +163,7 @@ def assemble_img(instr, data, ini):
         else:
             r_nxt, d_nxt = 3, 1
 
-        if img and u_edge(i_tile) == prev_d_edge[::-1]:
+        if u_edge(i_tile) == prev_d_edge[::-1]:
             i_tile = lr_flip(i_tile)
             flip = True
 
