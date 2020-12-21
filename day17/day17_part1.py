@@ -8,14 +8,14 @@ with open('day17_input.txt', newline='') as f:
 
 part_1_data = [data]
 
-# def print_arr(arr):
-#     z = 0 - int(len(arr)//2)
-#     for plane in arr:
-#         print(f'z = {z}')
-#         for row in plane:
-#             print(row)
-#         z += 1
-#         print('')
+def print_arr(arr):
+    z = 0 - int(len(arr)//2)
+    for plane in arr:
+        print(f'z = {z}')
+        for row in plane:
+            print(row)
+        z += 1
+        print('')
 
 # print_arr(part_1_data)
 
