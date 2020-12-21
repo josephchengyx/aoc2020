@@ -7,9 +7,9 @@ with open('day11_input.txt', newline='') as f:
         line = list(line)
         data.append(line)
 
-# def print_arr(arr):
-#     for row in arr:
-#         print(row)
+def print_arr(arr):
+    for row in arr:
+        print(row)
 
 # print_arr(data[:5])
 
