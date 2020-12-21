@@ -9,7 +9,7 @@ with open('day14_input.txt', newline='') as f:
 def parse(data):
     for i in range(len(data)):
         line = data[i]
-        if line[:3] == 'mas':
+        if line[:4] == 'mask':
             idx = line.index('=')
             val = line[idx+2:]
             data[i] = ('mask', val)
