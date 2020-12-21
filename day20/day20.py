@@ -207,6 +207,8 @@ def assemble_img(instr, data, ini):
     
     return img
 
+
+
 def convolution(data):
     krnl = ['                  # ', '#    ##    ##    ###', ' #  #  #  #  #  #   ']
     m, d = len(krnl), len(krnl[0])
