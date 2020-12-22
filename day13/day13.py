@@ -63,7 +63,7 @@ def part_2(buses):
     res = 0
     for n, r in eqns:
         y = N//n
-        gcd, z, k = gcdExtended(y, n)
+        z = gcdExtended(y, n)[1]
         res += r * y * z
     
     return res % N
