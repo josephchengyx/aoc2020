@@ -16,12 +16,12 @@ player1, player2 = parse(data)
 # print(f"Player 1's deck: {player1}")
 # print(f"Player 2's deck: {player2}")
 
+
+
 def score(deck):
     N = len(deck)
     res = map(lambda x, y: x * y, deck, range(N, 0 ,-1))
     return sum(res)
-
-
 
 def part_1(p1, p2):
     while p1 and p2:
