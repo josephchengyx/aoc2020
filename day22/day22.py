@@ -67,4 +67,4 @@ def part_2(p1, p2):
 ans_1 = part_1(player1, player2)
 ans_2 = part_2(player1, player2)
 print(f'Part 1: {ans_1}')
-print(f'Part 1: {ans_2}')
+print(f'Part 2: {ans_2}')
