@@ -22,7 +22,7 @@ def parse_v2(data):
         else:
             nxt = data[i]
         res[cur] = nxt
-    return res, data[0]
+    return res
 
 def unparse(data):
     N, n = len(data), data.index(1)
@@ -54,12 +54,16 @@ def move_cups(data, ini, maxx, moves):
 
 
 def part_1(data):
-    data, ini = parse_v2(data)
-    res = move_cups(data, ini, max(data), 100)
+    ini, maxx = data[0], max(data)
+    data = parse_v2(data)
+    res = move_cups(data, ini, maxx, 100)
     return unparse(res)[1:]
 
 def part_2(data):
-    data, ini = parse_v2(data + tuple(range(10, 1_000_001)))
+    ini, end, maxx = data[0], data[-1], max(data)
+    data = parse_v2(data)
+    data[end] = maxx + 1
+    data = data + list(range(maxx+2, 1_000_001)) + [ini]
     res = move_cups(data, ini, 1_000_000, 10_000_000)
     r1 = res[1]
     r2 = res[r1]
