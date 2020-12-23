@@ -37,7 +37,7 @@ def move_cups(data, ini, moves):
         up3 = data[up2-1]
         curr_nxt = data[up3-1]
         dest = curr - 1
-        while (dest == up1 or dest == up2 or dest == up3) or dest < minn:
+        while dest in (up1, up2, up3) or dest < minn:
             dest -= 1
             if dest < minn:
                 dest = maxx
