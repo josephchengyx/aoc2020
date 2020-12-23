@@ -1,3 +1,7 @@
+'''
+Thanks once again to @chuahou for various further runtime optimizations
+'''
+
 data = 247819356
 
 def parse(data):
@@ -10,41 +14,40 @@ data = parse(data)
 
 def parse_v2(data):
     N = len(data)
-    res = [0] * N
-    for i in range(N):
-        cur = data[i]
-        if i == N-1:
+    res = [0] * (N+1)
+    for i in range(1, N+1):
+        cur = data[i-1]
+        if i == N:
             nxt = data[0]
         else:
-            nxt = data[i+1]
-        res[cur-1] = nxt
+            nxt = data[i]
+        res[cur] = nxt
     return res, data[0]
 
 def unparse(data):
-    N, n = len(data), data.index(1)+1
+    N, n = len(data), data.index(1)
     res = list()
-    for i in range(N):
-        n = data[n-1]
+    for i in range(1, N):
+        n = data[n]
         res.append(n)
     return ''.join(map(str, res))
 
-def move_cups(data, ini, moves):
-    minn, maxx = min(data), max(data)
+def move_cups(data, ini, maxx, moves):
     curr = ini
     for move in range(moves):
-        up1 = data[curr-1]
-        up2 = data[up1-1]
-        up3 = data[up2-1]
-        curr_nxt = data[up3-1]
+        up1 = data[curr]
+        up2 = data[up1]
+        up3 = data[up2]
+        curr_nxt = data[up3]
         dest = curr - 1
-        while dest in (up1, up2, up3) or dest < minn:
+        while dest in (up1, up2, up3) or dest < 1:
             dest -= 1
-            if dest < minn:
+            if dest < 1:
                 dest = maxx
-        dest_nxt = data[dest-1]
-        data[dest-1] = up1
-        data[up3-1] = dest_nxt
-        data[curr-1] = curr_nxt
+        dest_nxt = data[dest]
+        data[dest] = up1
+        data[up3] = dest_nxt
+        data[curr] = curr_nxt
         curr = curr_nxt
     return data
 
@@ -52,14 +55,14 @@ def move_cups(data, ini, moves):
 
 def part_1(data):
     data, ini = parse_v2(data)
-    res = move_cups(data, ini, 100)
+    res = move_cups(data, ini, max(data), 100)
     return unparse(res)[1:]
 
 def part_2(data):
     data, ini = parse_v2(data + tuple(range(10, 1_000_001)))
-    res = move_cups(data, ini, 10_000_000)
-    r1 = res[0]
-    r2 = res[r1-1]
+    res = move_cups(data, ini, 1_000_000, 10_000_000)
+    r1 = res[1]
+    r2 = res[r1]
     return r1 * r2
 
 
