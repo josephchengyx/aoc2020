@@ -28,7 +28,7 @@ def part_1(data):
 
 
 
-def part_2_alt(data, target):
+def part_2(data, target):
     m, n = 0, 2
     total = sum(data[m:n])
     while n <= len(data):
@@ -44,7 +44,7 @@ def part_2_alt(data, target):
 
 
 ans_1 = part_1(data)
-seq = part_2_alt(data, ans_1)
+seq = part_2(data, ans_1)
 ans_2 = min(seq) + max(seq)
 print(f'Part 1: {ans_1}')
 # print(seq)
