@@ -83,7 +83,7 @@ def expand_arr(arr):
     
     return arr
 
-def check_border(arr):
+def check_borders(arr):
     Y = len(arr)
     res = arr[0] + arr[-1]
     for j in range(1, Y-1):
@@ -139,7 +139,7 @@ def part_2(hexgrid, iters):
                 elif tile == 'w' and count == 2:
                     nxt[j][i] = 'b'
                 
-        if check_border(nxt):
+        if check_borders(nxt):
             nxt = expand_arr(nxt)
         ref = nxt
     
