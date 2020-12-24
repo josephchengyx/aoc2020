@@ -152,8 +152,8 @@ def part_2(hexgrid, iters):
 
 
 
-hexgrid = flip_tiles(data)
-ans_1 = part_1(hexgrid)
-ans_2 = part_2(hexgrid, 100)
+ini_config = flip_tiles(data)
+ans_1 = part_1(ini_config)
+ans_2 = part_2(ini_config, 100)
 print(f'Part 1: {ans_1}')
 print(f'Part 2: {ans_2}')
