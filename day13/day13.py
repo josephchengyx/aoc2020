@@ -1,3 +1,6 @@
+'''
+Thanks to Google for the implementation of the chinese remainder theorem
+'''
 from math import prod
 
 with open('day13_input.txt', newline='') as f:
@@ -58,7 +61,7 @@ def part_2(buses):
         if bus != 'x':
             eqns.append((bus, -i))
     
-    # chinese remainder theorem magic
+    # Chinese remainder theorem magic
     N = prod(map(lambda tup: tup[0], eqns))
     res = 0
     for n, r in eqns:
