@@ -48,11 +48,16 @@ def part_1(data, ini):
 
 
 
+part_2_memo = dict()
 def part_2(data, ini):
-    count = 0
-    for bag in data[ini]:
-        count += 1 + part_2(data, bag)
-    return count
+    if ini in part_2_memo:
+        return part_2_memo[ini]
+    else:
+        count = 0
+        for bag in data[ini]:
+            count += 1 + part_2(data, bag)
+        part_2_memo[ini] = count
+        return count
 
 
 
